@@ -1,3 +1,28 @@
+You can run this project locally
+
+Clone the project
+
+navigate to base of project
+
+node i(if you do not have node you will need to install to run locally)
+
+npm to start project
+
+This example does not automatically hook up to the BE code so the upvotes and comments will
+not save
+
+If you want to see the project run fully go to 
+
+everythingbutbagel.com
+
+The site is run using React, Node, Mongo, and AWS.
+
+
+
+---------------------------------------------------------------------------------------------
+(Auto Generated Content)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
