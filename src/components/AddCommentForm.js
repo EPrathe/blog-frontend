@@ -38,7 +38,7 @@ const AddCommentForm = ({ articleName, setArticleInfo }) => {
                 Comment *
                 <textarea rows="4" id="comment" maxLength="200" cols="50" value={commentText} onChange={(event) => setCommentText(event.target.value)} />
             </label>
-            <button disabled={disabled} onClick={() => addComment()}>Add Comment</button>
+            <button class="standard-button" disabled={disabled} onClick={() => addComment()}>Add Comment</button>
         </div>
     );
 }
