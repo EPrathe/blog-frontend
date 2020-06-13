@@ -9,7 +9,7 @@ const HomePage = () => (
          and any persisted data (comments and upvotes) is stored
         using a Mongo database. The calls are made using the Node framework Express.
     </p>
-    <div class="ToDoList-container">
+    <div className="ToDoList-container">
     <ToDoList/>
     </div>
     </>

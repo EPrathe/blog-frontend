@@ -10,6 +10,14 @@ $main-color:#8A2BE2;
     cursor: pointer;
 }
 
+@mixin disabled-button{
+  margin-left:.5rem;
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
 @mixin to-do-list-items {
   background-color: #D3D3D3;
   margin-top:.5rem;
@@ -34,12 +42,17 @@ body {
 
 .to-do-button{
   padding: 4px;
+  margin-left:.5rem;
   @include button-style;
   }
 
   .to-do-button:hover {
     background: $main-color;
     color: white;
+  }
+
+  .to-do-button[disabled]{
+    @include disabled-button;
   }
 
 .standard-button {
@@ -52,10 +65,7 @@ body {
 }
 .standard-button:disabled,
 .standard-button[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
-  cursor: not-allowed;
+  @include disabled-button;
 }
 
 h3, h4 {
@@ -175,7 +185,7 @@ nav {
 }
 
 .to-do-list{
-  border:1px solid black;
+  border:5px solid black;
   text-align: center;
   width: 25rem;
 }
