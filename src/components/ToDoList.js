@@ -21,9 +21,7 @@ const ToDoList = () => {
         'Content-Type': 'application/json',
       }
     });
-    debugger;
     const body = await result.json();
-    debugger;
     setToDoList(body);
     setNewToDo('');
   }
