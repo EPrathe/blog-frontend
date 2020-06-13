@@ -1,6 +1,29 @@
 $medium-font: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
 $main-color:#8A2BE2;
 
+@mixin button-style{
+  font-family: $medium-font;
+    font-size: 14px;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+@mixin disabled-button{
+  margin-left:.5rem;
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+@mixin to-do-list-items {
+  background-color: #D3D3D3;
+  margin-top:.5rem;
+  word-wrap: break-word;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -14,28 +37,35 @@ body {
   font-style: normal;
   line-height: 1.58;
   letter-spacing: -.003em;
-  //background-color: lightgray;
 }
 
-button {
-  padding: 16px;
-  font-family: $medium-font;
-  font-size: 16px;
-  background-color: black;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
+
+.to-do-button{
+  padding: 4px;
+  margin-left:.5rem;
+  @include button-style;
+  }
+
+  .to-do-button:hover {
+    background: $main-color;
+    color: white;
+  }
+
+  .to-do-button[disabled]{
+    @include disabled-button;
+  }
+
+.standard-button {
+  padding: 12px;
+  @include button-style;
 }
-button:hover {
+.standard-button:hover {
   background: $main-color;
   color: white;
 }
-button:disabled,
-button[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
-  cursor: not-allowed;
+.standard-button:disabled,
+.standard-button[disabled]{
+  @include disabled-button;
 }
 
 h3, h4 {
@@ -71,6 +101,10 @@ nav {
     text-decoration: none;
     color: black;
     font-weight: bold;
+    @media only screen and (max-width: 600px) {
+      padding: 16px 5px;
+      font-size: 16px;
+      }
     padding: 16px 32px;
   }
 
@@ -78,7 +112,6 @@ nav {
     background: black;
     color: white;
   }
-
 }
 
 
@@ -89,10 +122,6 @@ nav {
   margin-right: 20%;
   padding-top: 64px;
   background-color: white;
-  @media only screen and (min-width: 600px) {
-    margin-left: 20%;
-    margin-right: 20%;
-    }
 
   @media only screen and (max-width: 600px) {
     margin-left: 5%;
@@ -144,4 +173,31 @@ nav {
 .comment {
   border-bottom: 2px solid $main-color;
   padding: 16px;
+}
+
+.crossed {
+  text-decoration: line-through;
+  @include to-do-list-items;
+}
+
+.uncrossed {
+  @include to-do-list-items;
+}
+
+.to-do-list{
+  border:5px solid black;
+  text-align: center;
+  width: 25rem;
+}
+
+.ToDoList-container{
+display:flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 3rem;
+}
+
+.toDo-add-section{
+  margin-top: 1rem;
+  padding-bottom: 1rem;
 }
