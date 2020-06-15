@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 const ToDoList = () => {
   const [buttonDisabled, setButtonDisabled]= useState(true);
-  const[toDoList, setToDoList]=useState([{}]);
+  const[toDoList, setToDoList]=useState([]);
   const[newToDo, setNewToDo]=useState('');
 
   useEffect(() =>{
@@ -63,3 +63,18 @@ return(
 }
 
 export default ToDoList;
+
+
+    // const stuff = async()=>{
+    //     const something= await(contentful.createClient({
+    //          space: '4l76bla6vbnr',
+    //          accessToken: 'iIk069YpSKyGEGpv-dY5HnnWpXZo1AbP00lp7wcg3y0' }));
+    //          return something;
+    //      }   
+     
+    //  useEffect(()=>{
+    //      debugger;
+    //      let result= stuff();
+    //      setClient(result);
+    //      debugger;
+    //      },[]);

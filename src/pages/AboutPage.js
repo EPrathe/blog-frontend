@@ -6,8 +6,6 @@ const AboutPage = () => (
     <p>
         I am a software developer who created this website as a way of learning React. The experience with AWS, mongo and node was
         a bonus. You can find out more about me at 
-        
-        
     </p>
     <a href="https://www.linkedin.com/in/evanprather"  rel="noopener noreferrer" target="_blank">LinkedIn</a> 
     <p>

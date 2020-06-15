@@ -1,12 +1,34 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import ArticlesList from '../components/ArticlesList';
-import articleContent from './article-content';
+import * as contentful from 'contentful'
 
-const ArticlesListPage = () => (
-    <>
-    <h1>Articles</h1>
-    <ArticlesList articles={articleContent} />
-    </>
-);
+const ArticlesListPage = () =>{ 
+    const [articleContent,setArticleContent]=useState();
+    const getContentful = async()=>{
+        let client= await contentful.createClient({
+            space: '4l76bla6vbnr',
+            accessToken: 'iIk069YpSKyGEGpv-dY5HnnWpXZo1AbP00lp7wcg3y0'
+            })
+            return client;
+        }  
+
+     useEffect(()=>{
+          async function fetchData() {
+            const cat= await getContentful();
+            cat.getEntries().then(({items})=>{
+                setArticleContent(items);
+            })
+        }
+        fetchData();
+         },[]);
+
+    return(
+        <>
+        <h1>Articles</h1>
+
+        {articleContent && <ArticlesList articles={articleContent} />}
+        {!articleContent && <div>Loading</div>}
+        </>
+)};
 
 export default ArticlesListPage;
