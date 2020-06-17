@@ -27,7 +27,7 @@ const ArticlesListPage = () =>{
         <h1>Articles</h1>
 
         {articleContent && <ArticlesList articles={articleContent} />}
-        {!articleContent && <div>Loading</div>}
+        {!articleContent && <div className="class-loading">Loading</div>}
         </>
 )};
 
