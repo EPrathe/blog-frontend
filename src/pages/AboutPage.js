@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AboutPage = () => (
-    <>
+    <div className="fade-in">
     <h1>About me</h1>
     <p>
         I am a software developer who created this website as a way of learning React. The experience with AWS, mongo and node was
@@ -24,7 +24,7 @@ const AboutPage = () => (
         interdum, nibh elit congue tellus, ac vulputate urna lorem nec nisi. Morbi id 
         consequat quam. Vivamus accumsan dui in facilisis aliquet.,
     </p>
-    </>
+    </div>
 );
 
 export default AboutPage;

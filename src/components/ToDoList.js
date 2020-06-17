@@ -56,6 +56,7 @@ return(
     <button className="to-do-button" disabled={buttonDisabled} onClick={() => addToLIst()}>Add Task</button>
     </div>
     <List/>
+    <p>(Feel free to add suggestions)</p>
   </div>
   </>
 )
