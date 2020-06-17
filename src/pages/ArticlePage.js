@@ -13,6 +13,7 @@ const ArticlePage = ({ match }) => {
 
     const [articleContent,setArticleContent]=useState();
     const [article, setArticle]=useState();
+    const [loading, setLoading]=useState(true);
 
     const name = match.params.name;
 
@@ -42,7 +43,10 @@ const ArticlePage = ({ match }) => {
             const selectedArticle = articleContent.find(article => {
                 return article.fields.slug === name
             });
-            if(selectedArticle) setArticle(selectedArticle.fields);
+            if(selectedArticle){
+                 setArticle(selectedArticle.fields);
+                 setLoading(false);
+            }
            }
        }, [articleContent]);
        
@@ -64,15 +68,14 @@ const ArticlePage = ({ match }) => {
         window.scrollTo(0, 0);
     }, [name]);
 
-    
-    if (!article) return <NotFoundPage />
+    if(loading) return <div className="class-loading">Loading</div>
+    if(!article) return <NotFoundPage />
 
     const otherArticles = articleContent.filter(article =>{
         if(article.fields.slug !==name) return true;
         return false;
     })
     
-
     return (
         <>
         <h1>{article.title}</h1>

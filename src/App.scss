@@ -129,17 +129,30 @@ nav {
     }
 }
 
-.article-list-item {
-  text-decoration: none;
-  color: black;
-  padding: 16px 0 0 0;
+  .article-container{
+    text-align: center;
 
-  p {
-    padding-bottom: 32px;
-    border-bottom: 2px solid $main-color;
+    .article-list {
+      text-align: center;
+      color:black;
+      margin-top: 1rem ;
+      display: inline-block;
+      margin: 1 auto;
+
+      .article-item{
+        background-color: #fcf7ef;
+        max-width: 30rem;
+        display: inline-block;
+        border: 1px solid black;
+
+        .list-picture{
+          height: auto;
+          width: 100%;
+          object-fit: cover;
+        }
+      }    
+    }  
   }
-}
-
 
 #add-comment-form {
   border-bottom: 2px solid $main-color;
@@ -207,5 +220,9 @@ margin-bottom: 3rem;
   height: auto;
   max-height: 600px;
   object-fit: cover;
+}
+
+.class-loading {
+  text-align: center;
 }
 

@@ -63,18 +63,3 @@ return(
 }
 
 export default ToDoList;
-
-
-    // const stuff = async()=>{
-    //     const something= await(contentful.createClient({
-    //          space: '4l76bla6vbnr',
-    //          accessToken: 'iIk069YpSKyGEGpv-dY5HnnWpXZo1AbP00lp7wcg3y0' }));
-    //          return something;
-    //      }   
-     
-    //  useEffect(()=>{
-    //      debugger;
-    //      let result= stuff();
-    //      setClient(result);
-    //      debugger;
-    //      },[]);
