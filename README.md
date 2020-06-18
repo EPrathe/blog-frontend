@@ -15,7 +15,7 @@ If you want to see the project run fully go to
 
 everythingbutbagel.com
 
-The site is run using React, Node, Mongo, and AWS.
+The site is run using React, Node, Mongo, and AWS. The contenet in the articles come from Contentful.
 
 
 
