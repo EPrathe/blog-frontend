@@ -109,7 +109,6 @@ nav {
   }
 
   a:hover {
-    background: black;
     color: white;
   }
 }
@@ -131,25 +130,29 @@ nav {
 
   .article-container{
     text-align: center;
+    animation: fadeIn ease 3s;
+    -webkit-animation: fadeIn ease 3s;
 
     .article-list {
       text-align: center;
       color:black;
       margin-top: 1rem ;
       display: inline-block;
-      margin: 1 auto;
 
       .article-item{
         background-color: #fcf7ef;
         max-width: 30rem;
         display: inline-block;
         border: 1px solid black;
-
+        
         .list-picture{
           height: auto;
           width: 100%;
           object-fit: cover;
         }
+      }
+      .article-item:hover{
+        border: 1.5px solid $main-color;
       }    
     }  
   }
@@ -201,7 +204,19 @@ nav {
   border:5px solid black;
   text-align: center;
   width: 25rem;
+  animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
 }
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
 
 .ToDoList-container{
 display:flex;
@@ -224,5 +239,10 @@ margin-bottom: 3rem;
 
 .class-loading {
   text-align: center;
+}
+
+.fade-in{
+  animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
 }
 

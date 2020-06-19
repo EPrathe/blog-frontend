@@ -24,10 +24,8 @@ const ArticlesListPage = () =>{
 
     return(
         <>
-        <h1>Articles</h1>
-
+        <h1 className="fade-in">Articles</h1>
         {articleContent && <ArticlesList articles={articleContent} />}
-        {!articleContent && <div className="class-loading">Loading</div>}
         </>
 )};
 

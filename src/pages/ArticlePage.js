@@ -4,8 +4,6 @@ import CommentsList from '../components/CommentsList';
 import UpvotesSection from '../components/UpvotesSection';
 import AddCommentForm from '../components/AddCommentForm';
 import NotFoundPage from './NotFoundPage';
-
-//import articleContent from './article-content';
 import * as contentful from 'contentful'
 
 const ArticlePage = ({ match }) => {
@@ -47,6 +45,7 @@ const ArticlePage = ({ match }) => {
                  setArticle(selectedArticle.fields);
                  setLoading(false);
             }
+            setLoading(false);
            }
        }, [articleContent]);
        
@@ -68,8 +67,8 @@ const ArticlePage = ({ match }) => {
         window.scrollTo(0, 0);
     }, [name]);
 
-    if(loading) return <div className="class-loading">Loading</div>
-    if(!article) return <NotFoundPage />
+    if(!article && loading) return <></>
+    if(!article && !loading) return <NotFoundPage />
 
     const otherArticles = articleContent.filter(article =>{
         if(article.fields.slug !==name) return true;
@@ -77,21 +76,20 @@ const ArticlePage = ({ match }) => {
     })
     
     return (
-        <>
+        <div className="fade-in">
         <h1>{article.title}</h1>
         <img
             className="img-main"
             src={article.featuredImage.fields.file.url}
             alt={article.title}
           />
-          <ReactMarkdown source={article.body} />
-
+        <ReactMarkdown source={article.body} />
         <UpvotesSection articleName={name} upvotes={articleInfo.upvotes} setArticleInfo={setArticleInfo} />
         <AddCommentForm articleName={name} setArticleInfo={setArticleInfo} />
         <CommentsList comments={articleInfo.comments} />
         <h2>Other Articles:</h2>
         <ArticlesList articles={otherArticles} />
-        </>
+        </div>
     );
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import ToDoList from '../components/ToDoList';
 
 const HomePage = () => (
-    <>
+    <div className="fade-in">
     <h1>Welcome to Everything But Bagel!</h1>
     <p>
         I created this React based site with the help of a lynda.com tutorial. The site is hosted on Amazon Web Services
@@ -14,7 +14,7 @@ const HomePage = () => (
     <div className="ToDoList-container">
     <ToDoList/>
     </div>
-    </>
+    </div>
 );
 
 export default HomePage;
