@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import ToDoList from '../components/ToDoList';
 
 const HomePage = () => (
