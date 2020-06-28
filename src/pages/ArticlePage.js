@@ -4,9 +4,11 @@ import CommentsList from '../components/CommentsList';
 import UpvotesSection from '../components/UpvotesSection';
 import AddCommentForm from '../components/AddCommentForm';
 import NotFoundPage from './NotFoundPage';
-import * as contentful from 'contentful'
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const ArticlePage = ({ match }) => {
+
+const ArticlePage = ({ match, contentfulArticles}) => {
     const ReactMarkdown = require('react-markdown');
 
     const [articleContent,setArticleContent]=useState();
@@ -15,39 +17,13 @@ const ArticlePage = ({ match }) => {
 
     const name = match.params.name;
 
-    const [articleInfo, setArticleInfo] = useState({ upvotes: 0, comments: [] });
-
-
-    const getContentful = async()=>{
-        let client= await contentful.createClient({
-            space: '4l76bla6vbnr',
-            accessToken: 'iIk069YpSKyGEGpv-dY5HnnWpXZo1AbP00lp7wcg3y0'
-            })
-            return client;
-        }  
-    
-    useEffect(()=>{
-        async function fetchData() {
-          const cat= await getContentful();
-          cat.getEntries().then(({items})=>{
-              setArticleContent(items);
-          })
-      }
-      fetchData();
-       },[]);
+    const [articleInfo, setArticleInfo] = useState({ upvotes: 0, comments: [] }); 
 
        useEffect(()=>{
-           if(articleContent){
-            const selectedArticle = articleContent.find(article => {
-                return article.fields.slug === name
-            });
-            if(selectedArticle){
-                 setArticle(selectedArticle.fields);
-                 setLoading(false);
-            }
-            setLoading(false);
-           }
-       }, [articleContent]);
+        if(contentfulArticles.length>1){
+        setArticleContent(contentfulArticles);
+        }
+       }, [contentfulArticles]);
        
     useEffect(() => {
         const fetchData = async () => {
@@ -67,10 +43,23 @@ const ArticlePage = ({ match }) => {
         window.scrollTo(0, 0);
     }, [name]);
 
+    useEffect(()=>{
+        if(articleContent){
+            const selectedArticle = articleContent.find(article => {
+                return article.fields.slug === name
+            });
+            if(selectedArticle){
+                 setArticle(selectedArticle.fields);
+                 setLoading(false);
+            }
+            setLoading(false);
+           }
+    }, [articleContent]);
+
     if(!article && loading) return <></>
     if(!article && !loading) return <NotFoundPage />
 
-    const otherArticles = articleContent.filter(article =>{
+    const otherArticles = contentfulArticles.filter(article =>{
         if(article.fields.slug !==name) return true;
         return false;
     })
@@ -93,4 +82,18 @@ const ArticlePage = ({ match }) => {
     );
 }
 
-export default ArticlePage;
+ArticlePage.propTypes = {
+    setContentful: PropTypes.func.isRequired
+  }
+
+  const mapStateToProps = (state) => {
+    return {
+      contentfulArticles: state.articles
+    };
+  };
+  
+  const mapDispatchToProps = (dispatch) => ({
+      
+  });
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArticlePage);
