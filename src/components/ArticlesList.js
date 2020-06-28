@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ArticlesList = ({ articles }) => (
+const ArticlesList = ({ articles }) => {
+    return (
     <>
     {articles.map((article, key) => (
         
@@ -16,6 +17,6 @@ const ArticlesList = ({ articles }) => (
         </div>
     ))}
     </>
-);
+)};
 
 export default ArticlesList;

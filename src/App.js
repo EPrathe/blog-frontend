@@ -11,9 +11,28 @@ import ArticlePage from './pages/ArticlePage';
 import NotFoundPage from './pages/NotFoundPage';
 import NavBar from './NavBar';
 import './App.scss';
+import { getAllCopy, getCopyForComponent } from "./copyHandling";
+import { connect } from 'react-redux';
+import {addArticles} from './modules/actions'
+import PropTypes from 'prop-types'
 
 class App extends Component {
+  state = {
+    copy: null
+  };
+
+  componentDidMount() {
+    getAllCopy().then(copy => {
+      this.setState({copy});
+      this.props.setContentful(copy)
+    });
+  }
+
+
   render() {
+    const { copy } = this.state;
+    if (!copy) return null;
+
     return (
       <Router>
         <div className="App">
@@ -33,4 +52,18 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+  setContentful: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => {
+  return {
+    content: state.articles[0]
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+    setContentful: data => dispatch(addArticles(data))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

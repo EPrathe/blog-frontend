@@ -6,6 +6,8 @@
   "dependencies": {
     "axios": "^0.19.2",
     "contentful": "^7.14.4",
+    "dotenv": "^8.2.0",
+    "env-cmd": "^10.1.0",
     "node-sass": "^4.14.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

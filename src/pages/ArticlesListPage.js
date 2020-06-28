@@ -1,32 +1,31 @@
 import React, {useState, useEffect} from 'react';
 import ArticlesList from '../components/ArticlesList';
-import * as contentful from 'contentful'
+import PropTypes from 'prop-types'
+import {addArticles} from '../modules/actions'
+import { connect } from 'react-redux';
 
-const ArticlesListPage = () =>{ 
-    const [articleContent,setArticleContent]=useState();
-    const getContentful = async()=>{
-        let client= await contentful.createClient({
-            space: '4l76bla6vbnr',
-            accessToken: 'iIk069YpSKyGEGpv-dY5HnnWpXZo1AbP00lp7wcg3y0'
-            })
-            return client;
-        }  
-
-     useEffect(()=>{
-          async function fetchData() {
-            const cat= await getContentful();
-            cat.getEntries().then(({items})=>{
-                setArticleContent(items);
-            })
-        }
-        fetchData();
-         },[]);
+const ArticlesListPage = (contentfulArticles) =>{ 
+  if(contentfulArticles.contentfulArticles.length<1 || !contentfulArticles.contentfulArticles) return null;
 
     return(
         <>
         <h1 className="fade-in">Articles</h1>
-        {articleContent && <ArticlesList articles={articleContent} />}
+        {contentfulArticles.contentfulArticles && <ArticlesList articles={contentfulArticles.contentfulArticles} />}
         </>
 )};
 
-export default ArticlesListPage;
+ArticlesListPage.propTypes = {
+    setContentful: PropTypes.func.isRequired
+  }
+
+  const mapStateToProps = (state) => {
+    return {
+      contentfulArticles: state.articles
+    };
+  };
+  
+  const mapDispatchToProps = (dispatch) => ({
+      setContentful: data => dispatch(addArticles(data))
+  });
+
+  export default connect(mapStateToProps, mapDispatchToProps)(ArticlesListPage);
