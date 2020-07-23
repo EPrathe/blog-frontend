@@ -14,7 +14,7 @@ const NavBar = () => (
                 <Link to="/articles-list">Articles</Link>
             </li>
             <li>
-                <a href="https://www.linkedin.com/in/evanprather"  rel="noopener noreferrer" target="_blank">LinkedIn</a>
+                <Link to="/pokemon">Pokemon</Link>
             </li>
             <li>
                 <a href="https://github.com/EPrathe"  rel="noopener noreferrer" target="_blank">GitHub</a>

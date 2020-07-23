@@ -15,6 +15,7 @@ import { getAllCopy, getCopyForComponent } from "./copyHandling";
 import { connect } from 'react-redux';
 import {addArticles} from './modules/actions'
 import PropTypes from 'prop-types'
+import Pokemon from './pages/Pokemon';
 
 class App extends Component {
   state = {
@@ -43,6 +44,7 @@ class App extends Component {
               <Route path="/about" component={AboutPage} />
               <Route path="/articles-list" component={ArticlesListPage} />
               <Route path="/article/:name" component={ArticlePage} />
+              <Route path="/pokemon" component={Pokemon} />
               <Route component={NotFoundPage} />
             </Switch>
           </div>
