@@ -34,7 +34,7 @@ const GET_POKEMON_INFO = gql`
 
 function Pokemon() {
   const{data,loading,error}=useQuery(GET_POKEMON_INFO);
-  if(loading) return <p>loading</p>
+  if(loading) return  <div className="loading"><i className="fa fa-spinner fa-spin">Loading</i></div>
   if(error) return <p>error</p>
   data.pokemons.map((pokemon)=>{
     if(pokemon.types[0]==="Grass"){
@@ -96,8 +96,13 @@ function Pokemon() {
     return pokemon;
   });
   return (
-    <div class="main">
+    <div className="main">
     <h1>Pokémon</h1>
+    <p>Every website is better with Pokémon!</p>
+    <p>This page was created with the help of 
+      <a href="https://github.com/lucasbento/graphql-pokemon"  rel="noopener noreferrer" target="_blank"> this graphql api</a>
+      </p> 
+    
     <div className="container">
       {data &&
         data.pokemons &&
@@ -108,8 +113,8 @@ function Pokemon() {
           <div className="pokemon-number">{pokemon.number}</div> 
           <div className="pokemon-type">{pokemon.types[0]}</div>
           </div>
-            <div class="image-container"><img src={pokemon.image} alt=""/></div>
-            <div class="card-body">
+            <div className="image-container"><img src={pokemon.image} alt=""/></div>
+            <div className="card-body">
               <h2>{pokemon.name}</h2>
               <p>
                 Height: {pokemon.height.maximum}
@@ -122,13 +127,13 @@ function Pokemon() {
             </div>
           </FrontSide>
           <BackSide className="card" style={{border: "5px solid " + pokemon.color}}>
-              <div class="special-attacks-container">
-              <p>
+              <div className="special-attacks-container">
+              <div>
                 <h3>Special Attacks:</h3>
                 {pokemon.attacks.special.map((e, indx) => {
                   return <div key={indx}> {e.name}- {e.damage} damage </div>;
                 })}
-              </p>
+              </div>
               </div>
                 <div className="strong-container">
                 <h3>Strong Against:</h3>

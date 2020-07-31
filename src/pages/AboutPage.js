@@ -4,8 +4,14 @@ const AboutPage = () => (
     <div className="fade-in">
     <h1>About me</h1>
     <p>
-        I am a software developer who created this website as a way of learning React. The experience with AWS, mongo and node was
-        a bonus. You can find out more about me at 
+        Hello! I graduated College with a degree in Computer Science along with minors in Bussiness and Mathmatics in 2017.
+        </p>
+        <p>
+        I spent one year working as a full stack developer at Unisys where I created software that allowed users 
+        to apply for loans from the USDA.
+        Next I worked for two years as a front end devloper at Martiz Motivation. 
+        At Maritz I worked on webbased applications that companies
+        the ability to create rewareds programs. 
     </p>
     <a href="https://www.linkedin.com/in/evanprather"  rel="noopener noreferrer" target="_blank">LinkedIn</a> 
     <p>

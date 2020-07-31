@@ -4,6 +4,8 @@
   "private": true,
   "proxy": "http://localhost:8000/",
   "dependencies": {
+    "@testing-library/jest-dom": "^5.11.2",
+    "@testing-library/react": "^10.4.7",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-link-http": "^1.5.17",
@@ -11,6 +13,7 @@
     "contentful": "^7.14.4",
     "dotenv": "^8.2.0",
     "env-cmd": "^10.1.0",
+    "font-awesome": "^4.7.0",
     "graphql": "^15.3.0",
     "graphql-tag": "^2.10.4",
     "node-sass": "^4.14.1",
@@ -22,6 +25,8 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
+    "react-test-renderer": "^16.13.1",
+    "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
     "redux-promise": "^0.6.0",
     "whatwg-fetch": "^3.0.0"
