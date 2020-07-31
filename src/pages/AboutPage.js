@@ -9,26 +9,15 @@ const AboutPage = () => (
         <p>
         I spent one year working as a full stack developer at Unisys where I created software that allowed users 
         to apply for loans from the USDA.
+        </p>
+        <p>
         Next I worked for two years as a front end devloper at Martiz Motivation. 
         At Maritz I worked on webbased applications that companies
         the ability to create rewareds programs. 
     </p>
-    <a href="https://www.linkedin.com/in/evanprather"  rel="noopener noreferrer" target="_blank">LinkedIn</a> 
+    <p>I enjoy learning new technologies and working on teams where colaboration are encouraged.</p>  
     <p>
-        Donec vel mauris lectus. Etiam nec lectus urna. Sed sodales ultrices dapibus. 
-        Nam blandit tristique risus, eget accumsan nisl interdum eu. Aenean ac accumsan 
-        nisi. Nunc vel pulvinar diam. Nam eleifend egestas viverra. Donec finibus lectus 
-        sed lorem ultricies, eget ornare leo luctus. Morbi vehicula, nulla eu tempor 
-        interdum, nibh elit congue tellus, ac vulputate urna lorem nec nisi. Morbi id 
-        consequat quam. Vivamus accumsan dui in facilisis aliquet.,
-    </p>
-    <p>
-        Etiam nec lectus urna. Sed sodales ultrices dapibus. 
-        Nam blandit tristique risus, eget accumsan nisl interdum eu. Aenean ac accumsan 
-        nisi. Nunc vel pulvinar diam. Nam eleifend egestas viverra. Donec finibus lectus 
-        sed lorem ultricies, eget ornare leo luctus. Morbi vehicula, nulla eu tempor 
-        interdum, nibh elit congue tellus, ac vulputate urna lorem nec nisi. Morbi id 
-        consequat quam. Vivamus accumsan dui in facilisis aliquet.,
+     If I'm not programming I'm probably watching sports, playing video games or trying to learn a new skill.    
     </p>
     </div>
 );
