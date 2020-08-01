@@ -1,3 +1,16 @@
+:host {
+  margin: 5rem;
+  font-family: 'kalam';
+  background-color: #cccccc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-right: 2rem;
+}
+
+.loading{
+  text-align: center;
+  padding-top: 10rem;
+}
 .main {
     font-family: 'kalam';
     -webkit-font-smoothing: antialiased;
@@ -70,14 +83,7 @@
     }  
   }
 
-  :host {
-    margin: 5rem;
-    font-family: 'kalam';
-    background-color: #cccccc;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    padding-right: 2rem;
-  }
+
   
 
   
